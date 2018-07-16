@@ -15,6 +15,15 @@
       </ul>
     </nav>
 
-    
+    <main>
+      <h2></h2>
+      <ul>
+        <% for (let i = 0; i < authors.length; i++) { %>
+          <li><a href="/authors/<%=authors[i].id%>"><%=authors[i].name%></a></li>
+        <% } %>
+      </ul>
+    </main>
+
+
   </body>
 </html>
