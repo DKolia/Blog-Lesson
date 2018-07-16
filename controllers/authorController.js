@@ -5,7 +5,13 @@ router.get("/", (req, res) => {
   res.render("authors/index.ejs");
 });
 
+router.get("/new", (req, res) => {
+  res.render("authors/new.ejs");
+});
 
-
+router.post("/", (req, res) => {
+  console.log(req.body);
+  res.send("Server recieved request.")
+});
 
 module.exports = router;
