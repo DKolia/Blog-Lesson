@@ -5,8 +5,10 @@
     <title></title>
   </head>
   <body>
+
+
     <header>
-      <h1>Show Page for <%=authors.name%></h1>
+      <h1>Show Page for <%=author.name%></h1>
       <nav>
         <ul>
           <li><a href="/">Home</a></li>
@@ -14,6 +16,20 @@
         </ul>
       </nav>
     </header>
+
+    <section>
+      <h2>Articles Written by this Author:</h2>
+      <ul>
+        <% for (let i = 0; i < author.articles.length; i++) { %>
+          <li>
+            <a href="/articles/<%= author.articles[i]._id %>">
+              <%= author.articles[i].title %>
+            </a>
+          </li>
+        <% } %>
+      </ul>
+    </section>
+
 
     <main>
       <section>
@@ -23,5 +39,18 @@
         </ul>
       </section>
     </main>
+
+
+    <section>
+      <a href="/authors/<%=author.id%>/edit">Edit</a>
+    </section>
+
+
+    <section>
+      <form action="/authors/<%=author.id%>?_method=DELETE" method="POST">
+      <button type="submit">Delete an Author</button>
+    </section>
+
+
   </body>
 </html>
